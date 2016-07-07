@@ -1,0 +1,41 @@
+<?php
+require 'gapi.class.php';
+define('ga_profile_id','123947637');
+
+$ga = new gapi("anshumalab@versatile-lotus-134309.iam.gserviceaccount.com", "example-c1728edf3d80.p12");
+
+$ga->requestReportData(ga_profile_id,array('browser'),array('pageviews','visits'));
+?>
+<table>
+<tr>
+  <th>Browser &amp; Browser Version</th>
+  <th>Pageviews</th>
+  <th>Visits</th>
+</tr>
+<?php
+foreach($ga->getResults() as $result):
+?>
+<tr>
+  <td><?php echo $result ?></td>
+  <td><?php echo $result->getPageviews() ?></td>
+  <td><?php echo $result->getVisits() ?></td>
+</tr>
+<?php
+endforeach
+?>
+</table>
+
+<table>
+<tr>
+  <th>Total Results</th>
+  <td><?php echo $ga->getTotalResults() ?></td>
+</tr>
+<tr>
+  <th>Total Pageviews</th>
+  <td><?php echo $ga->getPageviews() ?>
+</tr>
+<tr>
+  <th>Total Visits</th>
+  <td><?php echo $ga->getVisits() ?></td>
+</tr>
+</table>
