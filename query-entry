@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<h3>Select Query</h3>
+<form method="get" action="example.filter.php" >
+Dimension1<select name="dimension1">
+<option value="country">Country</option>
+<option value="city">City</option>
+</select>
+Dimension2<select name="dimension2">
+<option value="country">Country</option>
+<option value="city">City</option>
+</select>
+<input type="submit" value="See table!">
+</form>
+</html>
