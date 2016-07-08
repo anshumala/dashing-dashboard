@@ -21,7 +21,11 @@
 		<td> Metric1 
 			<select name="metric1">
  				<option value="pageviews">Pageviews</option>
-				<option value="visits">Visits</option>
+				<option value="sessions">Visits</option>
+				<option value="users">Unique Users</option>
+				<option value="avgsessionduration"> Average visit Duration</option>
+				<option value="bouncerate">Bounce Rate %</option>
+				<option value="pageviewspersession">Pageviews per Visit</option>
 			</select>
 		</td>
 	</tr>
@@ -29,7 +33,11 @@
 		<td> Metric2
 			<select name="metric2">
 				<option value="pageviews">Pageviews</option>
-				<option value="visits">Visits</option>
+				<option value="sessions">Visits</option>
+				<option value="users">Unique Users</option>
+				<option value="avgsessionduration"> Average visit Duration</option>
+				<option value="bouncerate">Bounce Rate %</option>
+				<option value="pageviewspersession">Pageviews per Visit</option>
 			</select>
 		</td>
 	</tr>
