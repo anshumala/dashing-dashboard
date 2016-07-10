@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<h3>Select Query</h3>
+<form method="get" action="dashboard5_p2.php" >
+<table border=2px>
+	<tr>
+		<td> Dimension1 
+			<select name="dimension1">
+ 				<option value="hour">Hourly</option>
+				<option value="week">Weekly</option>
+				<option value="month">Monthly</option>
+				<option value="year">Yearly</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td> Dimension2
+			<select name="dimension2">
+				<option value="country">Country</option>
+				<option value="city">City</option>
+			</select>
+		</td>
+		<td> Metric1 
+			<select name="metric1">
+ 				<option value="pageviews">Pageviews</option>
+				<option value="sessions">Visits</option>
+				<option value="users">Users</option>
+				<option value="avgSessionDuration">Average Session Duration</option>
+				<option value="bounceRate">Bounce Rate % </option>
+				<option value="pageviewsPerSession"> Pageviews Per Session</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td> Metric2
+			<select name="metric2">
+				<option value="pageviews">Pageviews</option>
+				<option value="sessions">Visits</option>
+				<option value="users">Users</option>
+				<option value="avgSessionDuration">Average Session Duration</option>
+				<option value="bounceRate">Bounce Rate % </option>
+				<option value="pageviewsPerSession"> Pageviews Per Session</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+	Start Date
+	<input type="date" name="start_date">
+	End Date
+	<input type="date" name="end_date">
+	</tr>
+	
+</table>
+<br>
+<hr>
+<input type="submit" value="See table!">
+</form>
+</html>
