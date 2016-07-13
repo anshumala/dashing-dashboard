@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<center>
+<h3>Select Query</h3>
+<form method="get" action="finaldrafttable.php" >
+<table border=2px>
+	<tr>
+		<td> Dimension1 
+			<select name="dimension1">
+ 				<option value="hour">Hourly</option>
+				<option value="week">Weekly</option>
+				<option value="month">Monthly</option>
+				<option value="year">Yearly</option>
+			</select><br>
+		</td>
+	</tr>
+	<tr>
+	 Filter(Optional):<br>
+		<input type ="radio" name="place" value="India">India <br>
+		<input type="radio" name="place" value="Bengaluru">Bengaluru<br><br>
+	</tr>
+	<tr>
+	Start Date
+	<input type="date" name="start_date">
+	End Date
+	<input type="date" name="end_date">
+	</tr><br><br>
+	
+</table>
+<br>
+<hr>
+<input type="submit" value="See table!">
+</form>
+</center>
+</html>
