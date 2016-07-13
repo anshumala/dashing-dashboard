@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<?php
+require 'gapi.class.php';
+define('ga_profile_id','123947637');
+$ga = new gapi("anshumalab@versatile-lotus-134309.iam.gserviceaccount.com", "example-c1728edf3d80.p12");
+ 
+ $place=null;
+ 
+ $dimension1=($_GET["dimension1"]);
+ $place=($_GET["place"]);
+ $start_date=($_GET["start_date"]);
+ $end_date=($_GET["end_date"]);
+ 
+//$filter = 'country == India';
+if($place=="Bengaluru"){
+	$filter='city==Bengaluru';
+}
+else if($place=="India"){
+		$filter='country==India';
+}
+else{$filter=Null;}
+
+$ga->requestReportData(ga_profile_id,array($dimension1),array('pageviews','sessions','users','avgSessionDuration','bounceRate','pageviewsPerSession'),-"sessions",$filter,$start_date,$end_date);
+  
+  
+?>
+<table border=5px>
+<tr>
+
+  <th><?php echo $dimension1; ?> </th>
+  <th><?php echo "Pageviews"; ?> </th>
+  <th><?php echo "Sessions"; ?> </th>
+  <th><?php echo "Users"; ?></th>
+  <th><?php echo "Average Session Duartion";?></th>
+  <th><?php echo "Bounce Rate %";?></th>
+  <th><?php echo "Pageviews Per Session"; ?></th>
+</tr>
+<?php
+foreach($ga->getResults() as $result):
+?>
+<tr>
+  <td><?php echo $result ?></td>
+  <td><?php echo $result->getPageviews() ?></td>
+  <td><?php echo $result->getSessions()?></td>
+  <td><?php echo $result->getUsers()?></td>
+  <td><?php echo (($result->getAvgSessionDuration())/60)." min"?></td>
+  <td><?php echo ($result->getBounceRate())." %"?></td>
+  <td><?php echo $result->getPageviewsPerSession() ?></td>
+</tr>
+<?php
+endforeach
+?>
+</table>
+<br>
+<hr>
+<table border=2px >
+<tr>
+  <th>Filters Applied</th>
+  <td><?php echo $filter ?></td>
+</tr>
+<tr>
+  <th>Total Results</th>
+  <td><?php echo $ga->getTotalResults() ?></td>
+</tr>
+<tr>
+  <th>Total Pageviews</th>
+  <td><?php echo $ga->getPageviews() ?></td>
+</tr>
+<tr>
+  <th>Total Sessions</th>
+  <td><?php echo $ga->getSessions() ?></td>
+</tr>
+<tr>
+  <th>Total Users</th>
+  <td><?php echo $ga->getUsers() ?></td>
+</tr>
+<tr>
+  <th>Total Avg Session Duration</th>
+  <td><?php echo ((($ga->getAvgSessionDuration())/60)." min") ?></td>
+</tr>
+<tr>
+  <th>Total Bounce Rate</th>
+  <td><?php echo $ga->getBounceRate(). " %" ?></td>
+</tr>
+<tr>
+  <th>Total Pageviews Per Session</th>
+  <td><?php echo $ga->getPageviewsPerSession() ?></td>
+</tr>
+<tr>
+  <th>Result Date Range</th>
+  <td><?php echo $ga->getStartDate() ?> to <?php echo $ga->getEndDate() ?></td>
+</tr>
+</table>
+
+
+</html>
